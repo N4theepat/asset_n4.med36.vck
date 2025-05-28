@@ -1,1 +1,53 @@
-<img src="https://weather.bangkok.go.th/Images/Radar/radarh.jpg"></img>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box; /* Ensure padding doesn't add to width/height */
+        }
+
+        /* Container for the image, primarily for sizing constraints */
+        .image-container {
+            max-width: 90vw; /* Max width of 90% of viewport width */
+            max-height: 80vh; /* Max height of 80% of viewport height */
+            display: flex; /* For centering image if it's smaller than container */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide parts of image if it's larger than container */
+            border-radius: 8px; /* Optional: if you want the container itself to have rounded corners, though not visible without a background/border */
+        }
+
+        /* Styling for the image itself */
+        .responsive-image {
+            display: block; /* Remove extra space below image */
+            max-width: 100%; /* Image won't exceed container width */
+            max-height: 100%; /* Image won't exceed container height */
+            width: auto; /* Maintain aspect ratio, adjust width based on height */
+            height: auto; /* Maintain aspect ratio, adjust height based on width */
+            object-fit: contain; /* Scales image down to fit, maintaining aspect ratio, without cropping */
+            border-radius: 6px; /* Rounded corners for the image itself */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="imageContainer" class="image-container">
+        <img id="autoAdjustImage"
+             class="responsive-image"
+             src="https://weather.bangkok.go.th/Images/Radar/radarh.jpg"
+             alt="Weather Radar Image">
+        </div>
+
+</body>
+</html>
