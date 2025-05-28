@@ -21,14 +21,14 @@
         /* Styling for the weather widget container */
         .weather-widget-container {
             /* Interactive Width: */
-            width: 80%; /* Widget takes 80% of the viewport width */
-            max-width: 800px; /* Allows it to grow much wider for horizontal displays */
+            width: 100%; /* Widget now takes 100% of the viewport width to stretch fully */
+            /* Removed max-width to allow it to expand indefinitely with the frame */
             
             /* Interactive Height: */
             /* The height will naturally adjust to the content of the weather widget. */
             /* The weatherwidget.io script typically renders an iframe whose height is dynamic. */
             height: auto; /* Ensures the container's height adjusts to its content */
-            padding: 15px 30px; /* Adjusted padding for a wider layout (vertical horizontal) */
+            padding: 20px; /* Adjusted padding for a full-width layout */
             text-align: center; /* Ensures content inside is centered */
             display: flex; /* Use flexbox to center the widget link */
             justify-content: center;
