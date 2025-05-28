@@ -1,4 +1,100 @@
-<a class="weatherwidget-io" href="https://forecast7.com/en/14d02100d53/pathum-thani/" data-label_1="PATHUM THANI" data-label_2="WEATHER" data-font="Open Sans" data-icons="Climacons Animated" data-theme="weather_one" style="border-top-left-radius: 1% 5%; border-top-right-radius: 1% 5%; border-bottom-right-radius: 1% 5%; border-bottom-left-radius: 1% 5%;">PATHUM THANI WEATHER</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathum Thani Weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Basic styling for the body and container to center the widget */
+        body {
+            font-family: 'Anuphan', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5; /* Light background */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Styling for the weather widget container */
+        .weather-widget-container {
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Max width for larger screens */
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff; /* White background for the container */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 15px; /* Initial rounded corners for the container */
+            display: flex; /* Use flexbox to center the widget link */
+            justify-content: center;
+            align-items: center;
+            transition: border-radius 0.3s ease-out; /* Smooth transition for border-radius */
+        }
+
+        /* Styling for the weather widget link itself */
+        .weatherwidget-io {
+            display: block; /* Make it a block element for width control */
+            width: 100%; /* Take full width of its container */
+            height: auto; /* Auto height */
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color */
+            transition: border-radius 0.3s ease-out; /* Smooth transition for border-radius */
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-widget-container">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/14d02100d53/pathum-thani/"
+           data-label_1="PATHUM THANI"
+           data-label_2="WEATHER"
+           data-font="Anuphan"
+           data-icons="Climacons Animated"
+           data-theme="weather_one">
+            PATHUM THANI WEATHER
+        </a>
+    </div>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src='https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,'script','weatherwidget-io-js');
+
+        // JavaScript to dynamically adjust border-radius
+        document.addEventListener('DOMContentLoaded', function() {
+            const widgetLink = document.querySelector('.weatherwidget-io');
+            const container = document.querySelector('.weather-widget-container');
+
+            // Function to update the border-radius based on the container's width
+            function updateBorderRadius() {
+                // Get the current width of the container
+                const containerWidth = container.offsetWidth;
+
+                // Calculate a dynamic border-radius.
+                // We'll make it more rounded as the container gets wider, up to a certain point.
+                // This creates a more noticeable "stretching" effect on the corners.
+                // The values are chosen to create a visible change.
+                const newRadius = Math.min(containerWidth * 0.08, 40); // Max radius of 40px
+
+                // Apply the new border-radius to both the container and the widget link
+                container.style.borderRadius = `${newRadius}px`;
+                widgetLink.style.borderRadius = `${newRadius}px`;
+            }
+
+            // Call the function initially to set the border-radius
+            updateBorderRadius();
+
+            // Add an event listener for window resize to update the border-radius dynamically
+            window.addEventListener('resize', updateBorderRadius);
+        });
+    </script>
+</body>
+</html>
